@@ -89,6 +89,13 @@ public class Libraryrecordsystem extends JFrame implements ActionListener {
 			dispose();
 		}
 		
+		if(ae.getSource()==jb_bookinfo)
+		{
+			BookInformation bi=new BookInformation();
+			bi.setVisible(true);
+			dispose();
+		}
+		
 		
 		
 		if(ae.getSource()==jb_exit)

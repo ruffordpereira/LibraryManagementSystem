@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -88,7 +89,28 @@ public class BookInformation extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		String strAction=arg0.getActionCommand();
+		
+		if(strAction.equalsIgnoreCase("New"))
+		{
+			jtf_bookid.setText("");     
+			jtf_bookname.setText("");
+			jtf_bookauthor.setText("");
+			jtf_bookpublisher.setText("");
+			
+			
+		}
+		
+		if(strAction.equalsIgnoreCase("Exit"))
+		{
+			int read_jop_lrs=JOptionPane.showConfirmDialog(null,"Do you really want to exit","Exit confirmation",JOptionPane.YES_NO_OPTION);
+			
+			if(read_jop_lrs==JOptionPane.YES_OPTION);
+			{
+				dispose();
+				
+			}
+		}
 		
 	}
 

@@ -111,9 +111,17 @@ public class Studentinfo extends JFrame implements ActionListener{
 		
 
 		if(strAction.equalsIgnoreCase("New"))
+		{
+			 jtf_studentid.setText(""); 
+			 jtf_studentname.setText(""); 
+			 jtf_studentphone.setText(""); 
+			 jtf_studentaddon.setText(""); 
+			 jtf_studentemail.setText(""); 
+			
+		}
 			
 			
-			dispose();
+			
 				
 		if(strAction.equalsIgnoreCase("Save"))
 		{

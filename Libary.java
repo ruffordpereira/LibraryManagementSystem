@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.Scanner;
 
-public class Libary {
+public class Libary {											//should be depreciated
 
 	public static void main(String[] args) {
 		try
@@ -15,7 +15,7 @@ public class Libary {
 	}
 	try
 	{
-		Connection con=DriverManager.getConnection("jdbc:odbc:lib");
+		Connection con=DriverManager.getConnection("jdbc:odbc:std");  //chose as per convience
 		Statement st=con.createStatement();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("LOGIN ID:");

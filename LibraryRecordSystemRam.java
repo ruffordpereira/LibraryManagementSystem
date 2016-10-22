@@ -16,7 +16,7 @@ public class LibraryRecordSystemRam {
 		}
 		try
 		{
-			Connection con=DriverManager.getConnection("jdbc:odbc:std");
+			Connection con=DriverManager.getConnection("jdbc:odbc:std");   //Choose as per convience!!
 			Statement st=con.createStatement();
 			String sql="create Table logininfo( LOGINID String(20), PASSWORD  String(20))";
 			String sql1="create Table studentinfo(STUDENTID int ,STUDENTNAME String(20),PHONENO int ,ADDRESS String(50),EMAIL String(30) )"; 

@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -115,6 +116,29 @@ public class Transactioninfo extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		String strAction=arg0.getActionCommand();
+		
+		if(strAction.equalsIgnoreCase("New"))
+		{
+			jtf_studentid.setText("");
+			jtf_name.setText("");
+			jtf_bookid.setText("");
+			jtf_bookname.setText("");
+			jtf_startdate.setText("");
+			jtf_enddate.setText("");
+		}
+		
+		if(strAction.equalsIgnoreCase("Exit"))
+		{
+			int read_jop_lrs=JOptionPane.showConfirmDialog(null,"Do you really want to exit","Exit confirmation",JOptionPane.YES_NO_OPTION);
+			
+			if(read_jop_lrs==JOptionPane.YES_OPTION);
+			{
+				dispose();
+				
+			}
+		}
+
 		// TODO Auto-generated method stub
 		
 	}
