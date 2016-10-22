@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Libraryrecordsystem extends JFrame implements ActionListener {
-	JButton jb_studentinfo,jb_bookinfo,jb_transactioninfo,jb_exit;
+	JButton jb_login,jb_studentinfo,jb_bookinfo,jb_transactioninfo,jb_exit;
 	JPanel libraryrecordsystem;
 	
 	Libraryrecordsystem()
@@ -18,13 +18,16 @@ public class Libraryrecordsystem extends JFrame implements ActionListener {
 		
 		setTitle("Library Record System");
 		
+		jb_login=new JButton("Login");
 		jb_studentinfo=new JButton("Student Information");
 		jb_bookinfo=new JButton("Book Information");
 		jb_transactioninfo=new JButton("Transaction info");
 		jb_exit=new JButton("Exit");
 		
-		libraryrecordsystem=new JPanel(new GridLayout(1,4,5,5));
+		libraryrecordsystem=new JPanel(new GridLayout(1,5,5,5));
 		
+
+		libraryrecordsystem.add(jb_login);
 		libraryrecordsystem.add(jb_studentinfo);
 		libraryrecordsystem.add(jb_bookinfo);
 		libraryrecordsystem.add(jb_transactioninfo);
@@ -32,6 +35,7 @@ public class Libraryrecordsystem extends JFrame implements ActionListener {
 		
 		add(libraryrecordsystem);
 		
+		jb_login.addActionListener(this);
 		jb_studentinfo.addActionListener(this);
 		jb_bookinfo.addActionListener(this);
 		jb_transactioninfo.addActionListener(this);
@@ -39,7 +43,7 @@ public class Libraryrecordsystem extends JFrame implements ActionListener {
 		
 		
 		
-		setSize(600,200);
+		setSize(800,200);
 		setLocation(500,280);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -66,6 +70,22 @@ public class Libraryrecordsystem extends JFrame implements ActionListener {
 		{
 			Studentinfo sti=new Studentinfo();
 			sti.setVisible(true);
+			dispose();
+		}
+		
+		
+		if(ae.getSource()==jb_login)
+		{
+			LoginInfo li=new LoginInfo();
+			li.setVisible(true);
+			dispose();
+			
+		}
+		
+		if(ae.getSource()==jb_transactioninfo)
+		{
+			Transactioninfo ti=new Transactioninfo();
+			ti.setVisible(true);
 			dispose();
 		}
 		
