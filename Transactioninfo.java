@@ -45,48 +45,60 @@ public class Transactioninfo extends JFrame implements ActionListener{
 		jtf_startdate=new JTextField(15);
 		jtf_enddate=new JTextField(15);
 		
-		jl_studentid.add(jp_transactioninfo);
-		jtf_studentid.add(jp_transactioninfo);
-		
-		jl_name.add(jp_transactioninfo);
-		jtf_name.add(jp_transactioninfo);
-		
-		jl_bookid.add(jp_transactioninfo);
-		jtf_bookid.add(jp_transactioninfo);
-		
-		jl_bookname.add(jp_transactioninfo);
-		jtf_bookname.add(jp_transactioninfo);
-		
-		jl_startdate.add(jp_transactioninfo);
-		jtf_startdate.add(jp_transactioninfo);
-		
-		jl_enddate.add(jp_transactioninfo);
-		jtf_enddate.add(jp_transactioninfo);
-		
-		jb_new.add(jp_button);
-		jb_save.add(jp_button);
-		
-		
-		
-		
-		
 		jp_transactioninfo=new JPanel(new GridLayout(6,2,5,5));
 		jp_button=new JPanel(new GridLayout(1,4,5,5));
 		jp_main=new JPanel(new BorderLayout());
+		
+		jp_transactioninfo.add(jl_studentid);
+		jp_transactioninfo.add(jtf_studentid);
+		
+		
+		jp_transactioninfo.add(jl_name);
+		jp_transactioninfo.add(jtf_name);
+		
+		
+		jp_transactioninfo.add(jl_bookid);
+		jp_transactioninfo.add(jtf_bookid);
+		
+		
+		jp_transactioninfo.add(jl_bookname);
+		jp_transactioninfo.add(jtf_bookname);
+		
+		jp_transactioninfo.add(jl_startdate);
+		jp_transactioninfo.add(jtf_startdate);
+		
+		
+		jp_transactioninfo.add(jl_enddate);
+		jp_transactioninfo.add(jtf_enddate);
+		
+		
+		jp_button.add(jb_new );
+		jp_button.add(jb_save);
+		jp_button.add(jb_search);
+		jp_button.add(jb_exit);
+		
+		
+		
 		
 		jp_main.add(jp_transactioninfo,BorderLayout.NORTH);
 		jp_main.add(jp_button,BorderLayout.SOUTH);
 		add(jp_main);
 		
+		jb_new.addActionListener(this);
+		jb_save.addActionListener(this);
+		jb_search.addActionListener(this);
+		jb_exit.addActionListener(this);
 		
 		
 		
 		
 		
+		setSize(400,250);
+		setLocation(500,280);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
-		
-		
+		show();
 		
 		
 		
@@ -96,6 +108,7 @@ public class Transactioninfo extends JFrame implements ActionListener{
 	}
 
 	public static void main(String[] args) {
+		new Transactioninfo();
 		// TODO Auto-generated method stub
 
 	}
