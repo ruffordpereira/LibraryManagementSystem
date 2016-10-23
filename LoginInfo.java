@@ -25,9 +25,9 @@ public class LoginInfo  extends JFrame implements ActionListener{
 	 jtf_logid=new JTextField(10);
 	 jtf_password=new JTextField(10);
 	 
-	 jb_createuser=new JButton("LOGIN");
-	 jb_login=new JButton("CREATE");
-	 jb_cancel=new JButton("CANCLE");
+	 jb_login=new JButton("Login");
+	 jb_createuser=new JButton("Create User");
+	 jb_cancel=new JButton("Cancel");
 	 
 	 jp_details=new JPanel(new GridLayout(2,2,5,5));
 	 
@@ -38,8 +38,8 @@ public class LoginInfo  extends JFrame implements ActionListener{
 	 
 	 jp_button=new JPanel(new GridLayout(1,3));
 	 
-	 jp_button.add(jb_createuser);
 	 jp_button.add(jb_login);
+	 jp_button.add(jb_createuser);
 	 jp_button.add(jb_cancel);
 	 
 	 jp_main=new JPanel(new BorderLayout());
@@ -65,24 +65,17 @@ public class LoginInfo  extends JFrame implements ActionListener{
 	 {
 		 if(ae.getSource()==jb_createuser)
 		 {
-			 try
-			 {
-				 Connection con=DriverManager.getConnection("jdcb:odbc:std");  //change per convience
-				 Statement st=con.createStatement();
-				 String sql="insert into logininfo values('"+jtf_logid.getText()+"','"+jtf_password.getText()+"')";
-				 st.executeUpdate(sql);
-				 System.out.println("LOGIN");
-				 jtf_logid.setText("");
-				 jtf_password.setText("");
-		 }catch(SQLException e)
-		 {
-			 e.printStackTrace();
+			 CreateUser cu=new CreateUser();
+			 cu.setVisible(true);
+			 dispose();
+			
 		 }
-		 }else if(ae.getSource()==jb_login)
+		 if(ae.getSource()==jb_login)
 		 {
 			 
+			 
 		 }
-		 else if(ae.getSource()==jb_cancel)
+		 if(ae.getSource()==jb_cancel)
 		 {
 			 System.exit(0);
 		 }
