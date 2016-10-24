@@ -119,7 +119,8 @@ public class CreateUser extends JFrame implements ActionListener {
 		{
 			Connection con=DriverManager.getConnection("jdbc:odbc:std");  //chose as per convience
 			Statement st=con.createStatement();
-			String sql="insert into logininfo values('"+jtf_userid.getText()+"'+'"+jpf_password.getText()+"')";
+			@SuppressWarnings("deprecation")
+			String sql="insert into logininfo(LOGINID,PASSWORD)values('"+jtf_userid.getText()+"',+'"+jpf_password.getText()+"')";
 			st.executeUpdate(sql);
 			dispose();
 			
