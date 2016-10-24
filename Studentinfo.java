@@ -4,6 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -127,14 +131,12 @@ public class Studentinfo extends JFrame implements ActionListener{
 		{
 			 int read_jop = JOptionPane.showConfirmDialog(null,"Do you really want to save this to db?","Save confirmation",JOptionPane.YES_NO_OPTION);
 			
-			if(read_jop==JOptionPane.YES_OPTION);
-			{
+			 if(read_jop==JOptionPane.YES_OPTION);
+			 {
 				read_studentinfo_tf();
-			}
+				dispose();
+			 }
 		
-			
-			
-			dispose();
 		}	
 		
 		// TODO Auto-generated method stub
@@ -143,12 +145,31 @@ public class Studentinfo extends JFrame implements ActionListener{
 	
 	public void read_studentinfo_tf()
 	{
-		
-	}
+		try
+		{
+			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			//System.out.println("Driver is loaded");
+			
+		}catch(ClassNotFoundException e )
+		{
+			e.printStackTrace();
+		}
+		try
+		{
+			Connection con=DriverManager.getConnection("jdbc:odbc:std");   //Choose as per convience!!
+			Statement st=con.createStatement();
+			String sql="Insert into studentinfo(STUDENTID,STUDENTNAME,PHONENO,ADDRESS,EMAIL) values("+jtf_studentid.getText()+",'"+jtf_studentname.getText()+"',"+jtf_studentphone.getText()+",'"+jtf_studentaddon.getText()+"','"+jtf_studentemail.getText()+"')";
+			st.executeUpdate(sql);
+			dispose();
+		}	catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 
 	
 		// TODO Auto-generated method stub
 		
 	
 
+	}
 }
