@@ -4,6 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -111,7 +115,48 @@ public class BookInformation extends JFrame implements ActionListener {
 				
 			}
 		}
+		if(strAction.equalsIgnoreCase("Save"))
+		{
+			 int read_jop = JOptionPane.showConfirmDialog(null,"Do you really want to save this to db?","Save confirmation",JOptionPane.YES_NO_OPTION);
+			
+			 if(read_jop==JOptionPane.YES_OPTION);
+			 {
+				read_bookinfo();
+				dispose();
+			 }
 		
+		}	
+		
+		
+	}
+	public void read_bookinfo()
+	{
+		try
+		{
+			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			//System.out.println("Driver is loaded");
+			
+		}catch(ClassNotFoundException e )
+		{
+			e.printStackTrace();
+		}
+		try
+		{
+			Connection con=DriverManager.getConnection("jdbc:odbc:std");   //Choose as per convience!!
+			Statement st=con.createStatement();
+			String sql="Insert into bookinfo(BOOKID,BOOKNAME,BOOKAUTHOR,PUBLISIONS) values("+jtf_bookid.getText()+",'"+jtf_bookname.getText()+"','"+jtf_bookauthor.getText()+"','"+jtf_bookpublisher.getText()+"')";
+			st.executeUpdate(sql);
+			dispose();
+		}	catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+	
+		// TODO Auto-generated method stub
+		
+	
+
 	}
 
 }
