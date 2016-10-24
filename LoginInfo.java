@@ -1,9 +1,21 @@
 package p1;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.sql.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 public class LoginInfo  extends JFrame implements ActionListener{
 	 JLabel jl_logid,jl_password;
 	 JTextField jtf_logid,jtf_password;
@@ -11,14 +23,7 @@ public class LoginInfo  extends JFrame implements ActionListener{
 	 JPanel jp_details,jp_button,jp_main;
 	 LoginInfo()
 	 {
-		 try
-		 {
-			 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-			 
-		 }catch(ClassNotFoundException e)
-		 {
-			 e.printStackTrace();
-		 }
+		
 	 jl_logid=new JLabel("LOGIN ID");
 	 jl_password=new JLabel("PASSWORD");
 	 
@@ -72,12 +77,51 @@ public class LoginInfo  extends JFrame implements ActionListener{
 		 }
 		 if(ae.getSource()==jb_login)
 		 {
+			 try
+			 {
+				 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+				 Connection con=DriverManager.getConnection("jdbc:odbc:std");
+				 Statement ss=con.createStatement();
+				 String query = "SELECT * FROM logininfo";
+				 ResultSet rs = ss.executeQuery(query);
+				 while (rs.next())
+				 {
+					 
+					 String id = rs.getString(1);
+				     String firstName = rs.getString(2);
+				    // System.out.println(id);
+				     if(id.equals(jtf_logid.getText()) && firstName.equals(jtf_password.getText()))
+				     {
+				    	 Studentinfo si=new Studentinfo();
+				    	 dispose();
+				    	 break;
+				    	 
+				    	 
+				     }
+				     else
+				     {
+				    	 JOptionPane.showMessageDialog(null, "Invalid username/password", "Error", JOptionPane.ERROR_MESSAGE);
+				    	 
+				     }
+				 }
+				}
+			 	catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				 
+			 
 			 
 			 
 		 }
 		 if(ae.getSource()==jb_cancel)
 		 {
-			 System.exit(0);
+			 Libraryrecordsystem lrs=new Libraryrecordsystem();
+			 lrs.setVisible(true);
+			  System.exit(0);
 		 }
 	 }
 	 
