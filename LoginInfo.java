@@ -92,8 +92,8 @@ public class LoginInfo  extends JFrame implements ActionListener{
 				    // System.out.println(id);
 				     if(id.equals(jtf_logid.getText()) && firstName.equals(jtf_password.getText()))
 				     {
-				    	 Studentinfo si=new Studentinfo();
-				    	 dispose();
+				    	 SecondMenu sm=new SecondMenu();
+						 sm.setVisible(true);
 				    	 break;
 				    	 
 				    	 
@@ -119,8 +119,7 @@ public class LoginInfo  extends JFrame implements ActionListener{
 		 }
 		 if(ae.getSource()==jb_cancel)
 		 {
-			 Libraryrecordsystem lrs=new Libraryrecordsystem();
-			 lrs.setVisible(true);
+			 
 			  System.exit(0);
 		 }
 	 }

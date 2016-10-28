@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Libraryrecordsystem extends JFrame implements ActionListener {
-	JButton jb_login,jb_studentinfo,jb_bookinfo,jb_transactioninfo,jb_exit;
+	JButton jb_login,jb_exit;
 	JPanel libraryrecordsystem;
 	
 	Libraryrecordsystem()
@@ -19,26 +19,17 @@ public class Libraryrecordsystem extends JFrame implements ActionListener {
 		setTitle("Library Record System");
 		
 		jb_login=new JButton("Login");
-		jb_studentinfo=new JButton("Student Information");
-		jb_bookinfo=new JButton("Book Information");
-		jb_transactioninfo=new JButton("Transaction info");
 		jb_exit=new JButton("Exit");
 		
-		libraryrecordsystem=new JPanel(new GridLayout(1,5,5,5));
+		libraryrecordsystem=new JPanel(new GridLayout(1,2,5,5));
 		
 
 		libraryrecordsystem.add(jb_login);
-		libraryrecordsystem.add(jb_studentinfo);
-		libraryrecordsystem.add(jb_bookinfo);
-		libraryrecordsystem.add(jb_transactioninfo);
 		libraryrecordsystem.add(jb_exit);
 		
 		add(libraryrecordsystem);
 		
 		jb_login.addActionListener(this);
-		jb_studentinfo.addActionListener(this);
-		jb_bookinfo.addActionListener(this);
-		jb_transactioninfo.addActionListener(this);
 		jb_exit.addActionListener(this);
 		
 		
@@ -66,35 +57,21 @@ public class Libraryrecordsystem extends JFrame implements ActionListener {
 		//String strAction=arg0.getActionCommand();
 		
 		//if(strAction.equalsIgnoreCase("Student Information"));
-		if(ae.getSource()==jb_studentinfo)
-		{
-			Studentinfo sti=new Studentinfo();
-			sti.setVisible(true);
-			dispose();
-		}
+		
 		
 		
 		if(ae.getSource()==jb_login)
 		{
+			dispose();
 			LoginInfo li=new LoginInfo();
 			li.setVisible(true);
 			dispose();
 			
 		}
 		
-		if(ae.getSource()==jb_transactioninfo)
-		{
-			Transactioninfo ti=new Transactioninfo();
-			ti.setVisible(true);
-			dispose();
-		}
 		
-		if(ae.getSource()==jb_bookinfo)
-		{
-			BookInformation bi=new BookInformation();
-			bi.setVisible(true);
-			dispose();
-		}
+		
+		
 		
 		
 		

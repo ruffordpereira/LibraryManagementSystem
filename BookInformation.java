@@ -111,6 +111,8 @@ public class BookInformation extends JFrame implements ActionListener {
 			
 			if(read_jop_lrs==JOptionPane.YES_OPTION);
 			{
+				 SecondMenu sm=new SecondMenu();
+				 sm.setVisible(true);
 				dispose();
 				
 			}
@@ -121,6 +123,8 @@ public class BookInformation extends JFrame implements ActionListener {
 			
 			 if(read_jop==JOptionPane.YES_OPTION);
 			 {
+				 SecondMenu lrs=new SecondMenu();
+					lrs.setVisible(true);
 				read_bookinfo();
 				dispose();
 			 }

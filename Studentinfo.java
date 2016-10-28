@@ -108,6 +108,8 @@ public class Studentinfo extends JFrame implements ActionListener{
 			
 			if(read_jop_lrs==JOptionPane.YES_OPTION);
 			{
+				 SecondMenu sm=new SecondMenu();
+				 sm.setVisible(true);
 				dispose();
 				
 			}
@@ -134,8 +136,11 @@ public class Studentinfo extends JFrame implements ActionListener{
 			 if(read_jop==JOptionPane.YES_OPTION);
 			 {
 				read_studentinfo_tf();
-				dispose();
 			 }
+			
+			 SecondMenu sm=new SecondMenu();
+			sm.setVisible(true);
+			 dispose();
 		
 		}	
 		
@@ -160,7 +165,8 @@ public class Studentinfo extends JFrame implements ActionListener{
 			Statement st=con.createStatement();
 			String sql="Insert into studentinfo(STUDENTID,STUDENTNAME,PHONENO,ADDRESS,EMAIL) values("+jtf_studentid.getText()+",'"+jtf_studentname.getText()+"',"+jtf_studentphone.getText()+",'"+jtf_studentaddon.getText()+"','"+jtf_studentemail.getText()+"')";
 			st.executeUpdate(sql);
-			dispose();
+			
+			
 		}	catch(SQLException e)
 		{
 			e.printStackTrace();

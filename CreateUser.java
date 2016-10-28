@@ -109,7 +109,7 @@ public class CreateUser extends JFrame implements ActionListener {
 		try
 		{
 		Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-		System.out.println("Driver is loaded");
+		//System.out.println("Driver is loaded");
 		
 		}catch(ClassNotFoundException e )
 		{
@@ -124,8 +124,9 @@ public class CreateUser extends JFrame implements ActionListener {
 			st.executeUpdate(sql);
 			dispose();
 			
-			Studentinfo sti=new Studentinfo();
-			sti.setVisible(true);
+			LoginInfo li=new LoginInfo();
+			li.setVisible(true);
+			
 			
 		}catch(SQLException e)
 		{
